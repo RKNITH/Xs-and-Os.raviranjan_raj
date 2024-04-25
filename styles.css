@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    background-color: rgb(20, 8, 31);
+    color: azure;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container h1 {
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+
+.game-board {
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    margin: 40px;
+    background-color: rgb(22, 29, 26);
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px rgb(3, 3, 97);
+
+}
+
+.game-board:hover {
+    background-color: rgb(41, 48, 45);
+}
+
+.cell {
+    border: 2px solid rgb(143, 137, 137);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    padding: 20px;
+    font-weight: 600;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.cell:hover {
+    transform: scale(1.03);
+}
+
+
+
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.game-players {
+    display: flex;
+    justify-content: space-between;
+    margin-block: 20px;
+
+}
+
+.player {
+    margin: 20px;
+    font-size: 20px;
+}
+
+.resetBtn {
+    padding: 20px;
+    background-color: rgb(2, 2, 90);
+    font-size: 20px;
+    color: azure;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.resetBtn:hover {
+    background-color: rgb(7, 7, 65);
+}
+
+
+
+.cell.disabled {
+    background-color: #8c8c8c;
+}
+
+
+
+
+@media screen and (max-width:550px) {
+    .game-board {
+        grid-template-columns: repeat(3, minmax(90px, 1fr));
+
+    }
+
+    .cell {
+        height: 90px;
+        font-size: 50px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+}
+
+.alertBox {
+    position: absolute;
+    top: 0;
+    background-color: rgb(109, 112, 111);
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    height: 40px;
+    display: none;
+
+
+}
+
+.winning-cell {
+    text-decoration: line-through;
+}
